@@ -1,0 +1,14 @@
+# Python virtual environment & cache
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pygame & OS caches
+.directory
+.DS_Store
+
+# Save files & temporary data
+save_data.json
+*.log
