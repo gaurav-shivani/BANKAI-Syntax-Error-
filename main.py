@@ -64,8 +64,8 @@ settings_menu = SettingsMenu(SCREEN_WIDTH, SCREEN_HEIGHT)
 # Waiting screen assets
 waiting_bg = load_bg_image(["waiting_bg.png"], SCREEN_WIDTH, SCREEN_HEIGHT)
 font_waiting_title = safe_font("Rogue.ttf", 38, bold=True)
-font_waiting_sub = safe_font("stalin.ttf", 20)
-font_waiting_hint = safe_font("stalin.ttf", 14)
+font_waiting_sub = safe_font("rubik.ttf", 20)
+font_waiting_hint = safe_font("rubik.ttf", 14)
 
 # Load persistent user data
 player_stats = load_player_stats()
@@ -79,7 +79,7 @@ waiting_anim_counter = 0
 def connect_to_server(server_ip, player_stats, chosen_character_sprite):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        client_socket.settimeout(0.5) 
+        client_socket.settimeout(1.0)  # Give a slight buffer for the initial handshake
         client_socket.connect((server_ip, 5555))
         
         init_data = client_socket.recv(2048).decode('utf-8')
@@ -93,15 +93,21 @@ def connect_to_server(server_ip, player_stats, chosen_character_sprite):
             "character_sheet": chosen_character_sprite
         })
         client_socket.sendall(setup_packet.encode('utf-8'))
-        client_socket.settimeout(0.01) 
+        client_socket.settimeout(0.01)  # Non-blocking polling for the game loop
         
         return client_socket, local_id
-    except socket.timeout:
-        client_socket.settimeout(0.01)
-        return client_socket, local_id
+
+    except (socket.timeout, TimeoutError):
+        print(f"Connection to {server_ip}:5555 timed out. Is the server running?")
+        client_socket.close()
+        return None, None
+
     except Exception as e:
         print(f"Connection failed: {e}")
-        client_socket.close()
+        try:
+            client_socket.close()
+        except Exception:
+            pass
         return None, None
 
 
@@ -157,7 +163,7 @@ while running:
         if action == "BATTLE":
             app_state = "LEVEL_SELECTION"
         elif action == "ONLINE":
-            server_ip = "127.0.0.1" 
+            server_ip = "10.61.40.92" 
             chosen_sprite = "fighter.png"
             net_socket, local_id = connect_to_server(server_ip, player_stats, chosen_sprite)
             if net_socket:

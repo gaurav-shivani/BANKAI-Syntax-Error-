@@ -111,12 +111,12 @@ class TrainingHub:
         play_sound("Training.wav", 0.7)
 
         self.font_title = safe_font("Rogue.ttf", 40, bold=True)
-        self.font_level = safe_font("stalin.ttf", 20, bold=True)
-        self.font_name = safe_font("stalin.ttf", 15, bold=True)
-        self.font_body = safe_font("stalin.ttf", 13)
-        self.font_badge = safe_font("stalin.ttf", 13, bold=True)
-        self.font_btn = safe_font("stalin.ttf", 13, bold=True)
-        self.font_status = safe_font("stalin.ttf", 14, bold=True)
+        self.font_level = safe_font("rubik.ttf", 20, bold=True)
+        self.font_name = safe_font("rubik.ttf", 15, bold=True)
+        self.font_body = safe_font("rubik.ttf", 13)
+        self.font_badge = safe_font("rubik.ttf", 13, bold=True)
+        self.font_btn = safe_font("rubik.ttf", 13, bold=True)
+        self.font_status = safe_font("rubik.ttf", 14, bold=True)
 
         # Background
         self.bg_img = load_bg_image(["training_bg.png"], width, height)
@@ -327,14 +327,14 @@ class DrillScreen:
         self.level_idx = level_idx
         self.stats = player_stats
 
-        self.font_title = safe_font("stalin.ttf", 22, bold=True)
+        self.font_title = safe_font("rubik.ttf", 22, bold=True)
         self.font_exercise = safe_font("Rogue.ttf", 30, bold=True)
         self.font_reps = safe_font("Rogue.ttf", 52, bold=True)
-        self.font_body = safe_font("stalin.ttf", 15)
-        self.font_bold = safe_font("stalin.ttf", 15, bold=True)
-        self.font_queue = safe_font("stalin.ttf", 14)
+        self.font_body = safe_font("rubik.ttf", 15)
+        self.font_bold = safe_font("rubik.ttf", 15, bold=True)
+        self.font_queue = safe_font("rubik.ttf", 14)
         self.font_big = safe_font("Rogue.ttf", 44, bold=True)
-        self.font_sub = safe_font("stalin.ttf", 20)
+        self.font_sub = safe_font("rubik.ttf", 20)
 
         # Exercise state
         self.exercises = level_data["exercises"]
@@ -545,9 +545,9 @@ class LevelCompleteScreen:
         self.start_time = time.time()
 
         self.font_title = safe_font("Rogue.ttf", 50, bold=True)
-        self.font_subtitle = safe_font("stalin.ttf", 22, bold=True)
-        self.font_body = safe_font("stalin.ttf", 17)
-        self.font_btn = safe_font("stalin.ttf", 20, bold=True)
+        self.font_subtitle = safe_font("rubik.ttf", 22, bold=True)
+        self.font_body = safe_font("rubik.ttf", 17)
+        self.font_btn = safe_font("rubik.ttf", 20, bold=True)
         self.font_unlock = safe_font("Rogue.ttf", 36, bold=True)
 
         self.continue_btn = pygame.Rect(

@@ -224,8 +224,8 @@ class SettingsMenu:
         self.width = width
         self.height = height
         self.font_title = safe_font("Rogue.ttf", 48, bold=True)
-        self.font_btn = safe_font("stalin.ttf", 22)
-        self.font_label = safe_font("stalin.ttf", 16)
+        self.font_btn = safe_font("rubik.ttf", 22)
+        self.font_label = safe_font("rubik.ttf", 16)
 
         card_w, card_h = 420, 430
         cx = (width - card_w) // 2
@@ -290,7 +290,7 @@ class PauseMenu:
         self.width = width
         self.height = height
         self.font_title = safe_font("Rogue.ttf", 38, bold=True)
-        self.font_btn = safe_font("stalin.ttf", 22)
+        self.font_btn = safe_font("rubik.ttf", 22)
 
         card_w, card_h = 420, 320
         cx = (width - 280) // 2
@@ -333,9 +333,9 @@ class LevelSelectMenu:
         self.height = height
 
         self.font_title = safe_font("Rogue.ttf", 40, bold=True)
-        self.font_btn = safe_font("stalin.ttf", 20)
+        self.font_btn = safe_font("rubik.ttf", 20)
         self.font_lock = safe_font("Ryzes.ttf", 14)
-        self.font_stage_name = safe_font("stalin.ttf", 16)
+        self.font_stage_name = safe_font("rubik.ttf", 16)
 
         self.bg_img = load_bg_image(
             ["level_select_bg.png", "level_menu_bg.png", "level_bg.png"], width, height)
@@ -469,8 +469,8 @@ class MainMenu:
 
         self.font_title = safe_font("Rogue.ttf", 96, bold=True)
         self.font_subtitle = safe_font("Rogue.ttf", 30)
-        self.font_btn = safe_font("stalin.ttf", 26)
-        self.font_stats = safe_font("stalin.ttf", 16)
+        self.font_btn = safe_font("rubik.ttf", 26)
+        self.font_stats = safe_font("rubik.ttf", 16)
 
         self.show_profile = False
         self.is_editing_name = False

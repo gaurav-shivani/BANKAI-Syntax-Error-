@@ -513,8 +513,8 @@ class FightingMatch:
             self.network_socket.setblocking(False)
 
         self.font_large = safe_font("Rogue.ttf", 90, bold=True)
-        self.font_hud_name = safe_font("stalin.ttf", 20, bold=True)
-        self.font_hint = safe_font("stalin.ttf", 13)
+        self.font_hud_name = safe_font("rubik.ttf", 20, bold=True)
+        self.font_hint = safe_font("rubik.ttf", 13)
             
         self.intro_timer = 90  
         self.ko_timer = 110      # ~1.85 seconds at 60 FPS for KO banner & dying animation
